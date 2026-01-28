@@ -1,0 +1,167 @@
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Dalaphone ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.envelope {
+  width: 300px;
+  height: 200px;
+  background: #fff;
+  position: relative;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+.flap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ff4d6d;
+  clip-path: polygon(0 0, 50% 60%, 100% 0, 100% 100%, 0 100%);
+  transform-origin: top;
+  transition: transform 0.8s ease;
+  z-index: 3;
+}
+
+.envelope.open .flap {
+  transform: rotateX(180deg);
+}
+
+.letter {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 280px;
+  height: 180px;
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-sizing: border-box;
+  transform: translateY(120%);
+  transition: transform 0.8s ease 0.5s;
+  z-index: 2;
+  text-align: center;
+}
+
+.envelope.open .letter {
+  transform: translateY(-40%);
+}
+
+h1 {
+  color: #ff4d6d;
+  font-size: 20px;
+}
+
+p {
+  font-size: 14px;
+}
+
+.buttons {
+  position: relative;
+  height: 50px;
+}
+
+button {
+  font-size: 16px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#yes {
+  background: #ff4d6d;
+  color: white;
+}
+
+#no {
+  background: #aaa;
+  color: white;
+  position: absolute;
+  left: 120px;
+}
+
+#final {
+  display: none;
+  text-align: center;
+  color: white;
+}
+
+iframe {
+  display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="envelope" id="envelope">
+  <div class="flap"></div>
+
+  <div class="letter">
+    <h1>Dalaphone ❤️</h1>
+    <p>
+      I wanted to do something special for you.
+      You make my life happier, brighter, and better just by being in it.
+      I love you more than I can put into words.
+    </p>
+    <p><strong>Will you be my Valentine?</strong> 💌</p>
+
+    <div class="buttons">
+      <button id="yes">Yes 💘</button>
+      <button id="no">No 🙃</button>
+    </div>
+  </div>
+</div>
+
+<div id="final">
+  <h1>SHE SAID YES 😭❤️</h1>
+  <p>Happy Valentine’s Day, Dalaphone 💖</p>
+</div>
+
+<!-- Song (Only Boy by Rocco via YouTube) -->
+<iframe id="song"
+  src="https://www.youtube.com/embed/0X5oXzjZ5Ck?autoplay=1"
+  allow="autoplay">
+</iframe>
+
+<script>
+const envelope = document.getElementById("envelope");
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const final = document.getElementById("final");
+const song = document.getElementById("song");
+
+envelope.addEventListener("click", () => {
+  envelope.classList.add("open");
+});
+
+noBtn.addEventListener("mouseover", () => {
+  noBtn.style.left = Math.random() * 200 + "px";
+});
+
+yesBtn.addEventListener("click", () => {
+  envelope.style.display = "none";
+  final.style.display = "block";
+  song.style.display = "block";
+});
+</script>
+
+</body>
+</html>
